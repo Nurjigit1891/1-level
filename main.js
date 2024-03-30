@@ -1,7 +1,7 @@
 function getDataJson() {
     return new Promise((resolve, reject) => {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'data.json', true);
+        xhr.open('GET', '/data.json', true);
         xhr.onload = function() {
             if (xhr.status >= 200 && xhr.status < 300) {
                 var names = JSON.parse(xhr.responseText);
