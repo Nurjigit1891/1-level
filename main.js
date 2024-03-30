@@ -44,7 +44,7 @@ getDataLocal()
         console.error(error);
     });
 
-const randomName = document.querySelector('.randomStudent') ;
+const randomName = document.querySelector('.randomStudent');
 
 function getRandomStudent() {
     getDataLocal()
