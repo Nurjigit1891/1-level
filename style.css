@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+header {
+    margin-top: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.5px;
+    text-align: center;
+    
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+ol {
+    margin-top: 20px; 
+    font-style: italic;
+    font-size: 25px;
+
+    padding-left: 20px;
+}
+
+li {
+    margin-top: 3px;
+}
+
+
+button {
+    padding: 15px 25px;
+    margin-top: 20px;
+
+    font-size: 21px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: lightblue;
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: green;
+    color: white;
+}
+
+.randomStudent {
+    margin-top: 50px;
+    font-size: 41px;
+    font-weight: 700;
+}
