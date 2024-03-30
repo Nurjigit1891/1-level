@@ -1,23 +1,20 @@
-function getDataJson() {
-    return new Promise((resolve, reject) => {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/data.json', true);
-        xhr.onload = function() {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                var names = JSON.parse(xhr.responseText);
-                let jsonData = JSON.stringify(names);
-                localStorage.setItem('myData', jsonData);
-                resolve(names.sort());
-            } else {
-                reject(new Error('Failed to load data.json'));
-            }
-        };
-        xhr.onerror = function() {
-            reject(new Error('Failed to load data.json'));
-        };
-        xhr.send();
-    });
-}
+const data = [
+    "Атай",
+    "Айбек",
+    "Марсел",
+    "Нуржигит",
+    "Кайрат",
+    "Сыймык",
+    "Нурислам",
+    "Адил",
+    "Омурбек",
+    "Бурулсун",
+    "Азамат",
+    "Гулида",
+    "Эржан",
+    "Биймырза",
+    "Байыш"
+];
 
 function getDataLocal() {
     return new Promise((resolve, reject) => {
@@ -31,26 +28,25 @@ function getDataLocal() {
     });
 }
 
-getDataLocal()
-    .then(data => {
-        let listElement = document.querySelector('.list-student');
-        data.sort().forEach(function(student) {
-            var listItem = document.createElement('li');
-            listItem.textContent = student;
-            listElement.appendChild(listItem);
-        });
-    })
-    .catch(error => {
-        console.error(error);
+function displayStudents() {
+    const listElement = document.querySelector('.list-student');
+    data.sort().forEach(function(student) {
+        var listItem = document.createElement('li');
+        listItem.textContent = student;
+        listElement.appendChild(listItem);
     });
-
-const randomName = document.querySelector('.randomStudent');
+}
 
 function getRandomStudent() {
-    getDataLocal()
-    .then (data => {
-        var  randomIndex = Math.floor(Math.random() * data.length) ;
-        var randomStudent = data[randomIndex];
-        randomName.textContent= randomStudent
-    })
+    const randomNameElement = document.querySelector('.randomStudent');
+    const randomIndex = Math.floor(Math.random() * data.length);
+    const randomStudent = data[randomIndex];
+    randomNameElement.textContent = randomStudent;
 }
+
+// Вызов функций для отображения списка имен и добавления обработчика события для кнопки
+document.addEventListener('DOMContentLoaded', function() {
+    displayStudents();
+    const randomButton = document.querySelector('.button-30');
+    randomButton.addEventListener('click', getRandomStudent);
+});
